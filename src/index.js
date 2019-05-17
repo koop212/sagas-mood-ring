@@ -7,12 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-// Import saga middleware
+import { put, takeEvery } from 'redux-saga/effects'
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios'
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery('FETCH_IMAGES', fetchImages);
 }
 
 // Create sagaMiddleware
@@ -25,6 +26,17 @@ const images = (state = [], action) => {
             return action.payload;
         default:
             return state;
+    }
+}
+
+// Get images from server
+function* fetchImages() {
+    try{
+        let imageResponse = yield axios.get('/api/image');
+        yield put({type: 'SET_IMAGES', payload: imageResponse.data})
+    }catch(error) {
+        console.log('Error in fetchImage', error);
+        
     }
 }
 
