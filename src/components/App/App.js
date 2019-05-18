@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-
+          <h1>Image Carousel</h1>
         </header>
         <ImageDisplay />
         <AddTag />
