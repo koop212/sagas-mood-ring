@@ -37,16 +37,13 @@ class ImageDisplay extends Component {
     }
 
 
-    
-    
-
     render() {
         let index = this.state.index;
         return(
             <div>
                 {this.props.reduxState.images.map((pic, i) => {
                     if(pic.id-1 === index) {
-                    return (<OneImage key={i} image={pic} />)
+                        return <OneImage key={i} image={pic} />
                     }
                 })}
                 <button onClick={this.handlePrev}>Previous</button><button onClick={this.handleNext}>Next</button>

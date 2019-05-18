@@ -7,20 +7,29 @@ import {connect} from 'react-redux';
 class AddTag extends Component {
 
     state = {
-        image_id: 0,
-        tag_id: 0
+        tag_id: 0,
+        tag_name: ''
     }
 
     handleTagChange = (event) => {
         console.log(event.target.value);
         this.setState({
-            tag_id: event.target.value
+            tag_id: event.target.value,
+            tag_name: event.target.value
         })
     }
 
-    handleClick = () => {
+    handleTagNameChange = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            tag_name: event.target.value
+        })
+    }
+
+    handleClick = (event) => {
         console.log(this.state);
         this.props.dispatch({type: 'ADD_IMGTAG', payload: this.state})
+        this.props.dispatch({type: 'ADD_TAG', payload: this.state.tag_name})
     }
 
     render() {
@@ -35,6 +44,13 @@ class AddTag extends Component {
                     })}
                 </select>
                 <button onClick={this.handleClick}>Apply Tag</button>
+                <div>
+                    {this.props.reduxState.tags.map((tag, i) => {
+                        if(tag.id == this.state.tag_id) {
+                            return <p>{tag.name}</p>
+                        }
+                    })}
+                </div>
             </div>
         )
     }

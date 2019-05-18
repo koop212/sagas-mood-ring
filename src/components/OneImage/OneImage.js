@@ -7,4 +7,4 @@ class OneImage extends Component {
     }
 }
 
-export default OneImage;
+export default connect()(OneImage);

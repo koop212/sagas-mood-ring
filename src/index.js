@@ -31,6 +31,13 @@ const images = (state = [], action) => {
     }
 }
 
+const tagList = (state = [], action) => {
+    if(action.type === 'ADD_TAG') {
+        return [...state, action.payload]
+    }
+    return state;
+}
+
 // Get images from server
 function* fetchImages() {
     try{
@@ -56,9 +63,8 @@ function* fetchTags() {
 // Add tag_id and image_id to database
 function* addImgTag(action) {
     yield axios.post('/api/image_tag', action.payload)
-    yield put({type:'FETCH_TAGS'})
+    // yield put({type:'FETCH_TAGS'})
 }
-
 
 
 // Used to store the images tags (e.g. 'Inspirational', 'Calming', 'Energy', etc.)
@@ -76,6 +82,7 @@ const storeInstance = createStore(
     combineReducers({
         images,
         tags,
+        tagList
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
