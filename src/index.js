@@ -15,6 +15,7 @@ import axios from 'axios'
 function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages);
     yield takeEvery('FETCH_TAGS', fetchTags);
+    yield takeEvery('ADD_IMGTAG', addImgTag);
 }
 
 // Create sagaMiddleware
@@ -53,7 +54,10 @@ function* fetchTags() {
 }
 
 // Add tag_id and image_id to database
-
+function* addImgTag(action) {
+    yield axios.post('/api/image_tag', action.payload)
+    yield put({type:'FETCH_TAGS'})
+}
 
 
 

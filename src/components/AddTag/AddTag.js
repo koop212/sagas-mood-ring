@@ -18,18 +18,24 @@ class AddTag extends Component {
         })
     }
 
+    handleClick = () => {
+        console.log(this.state);
+        this.props.dispatch({type: 'ADD_IMGTAG', payload: this.state})
+    }
 
     render() {
         return(
-            <select value={this.state.tag_id} onChange={this.handleTagChange}>
-                <option disabled value="0">Pick One!</option>
-                {this.props.reduxState.tags.map((tag, i) => {
-                    return (
-                        <option value={tag.id}>{tag.name}</option>
-                    )
-                })}
-            </select>
-            
+            <div>
+                <select value={this.state.tag_id} onChange={this.handleTagChange}>
+                    <option disabled value="0">Pick One!</option>
+                    {this.props.reduxState.tags.map((tag, i) => {
+                        return (
+                            <option value={tag.id}>{tag.name}</option>
+                        )
+                    })}
+                </select>
+                <button onClick={this.handleClick}>Apply Tag</button>
+            </div>
         )
     }
 }
