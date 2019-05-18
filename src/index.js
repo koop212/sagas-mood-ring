@@ -14,6 +14,7 @@ import axios from 'axios'
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages);
+    yield takeEvery('FETCH_TAGS', fetchTags);
 }
 
 // Create sagaMiddleware
@@ -34,13 +35,27 @@ function* fetchImages() {
     try{
         let imageResponse = yield axios.get('/api/image');
         console.log(imageResponse);
-        
         yield put({type: 'SET_IMAGES', payload: imageResponse.data})
     }catch(error) {
         console.log('Error in fetchImage', error);
         
     }
 }
+
+// fetch all tags from server
+function* fetchTags() {
+    try{
+        let tagResponse = yield axios.get('/api/tag');
+        yield put({type: 'SET_TAGS', payload: tagResponse.data})
+    }catch(error) {
+        console.log('Error in fetchTags', error);
+    }
+}
+
+// Add tag_id and image_id to database
+
+
+
 
 // Used to store the images tags (e.g. 'Inspirational', 'Calming', 'Energy', etc.)
 const tags = (state = [], action) => {
