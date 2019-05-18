@@ -33,6 +33,8 @@ const images = (state = [], action) => {
 function* fetchImages() {
     try{
         let imageResponse = yield axios.get('/api/image');
+        console.log(imageResponse);
+        
         yield put({type: 'SET_IMAGES', payload: imageResponse.data})
     }catch(error) {
         console.log('Error in fetchImage', error);

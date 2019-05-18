@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
+import {connect} from 'react-redux';
+
 
 class App extends Component {
   // Renders the entire app on the DOM
+componentDidMount() {
+  this.props.dispatch({type:'FETCH_IMAGES'})
+}
+
   render() {
     return (
       <div className="App">
-        <p>Empty Page</p>
+        {this.props.reduxState.images.map((pic, i) => {
+          return <div key={i}><img src={pic.path} alt={pic.title} /></div>
+        })}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (reduxState) => {
+  return {
+    reduxState
+  }
+}
+
+export default connect(mapStateToProps)(App);
