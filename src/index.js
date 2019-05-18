@@ -31,12 +31,12 @@ const images = (state = [], action) => {
     }
 }
 
-const tagList = (state = [], action) => {
-    if(action.type === 'ADD_TAG') {
-        return [...state, action.payload]
-    }
-    return state;
-}
+// const tagList = (state = [], action) => {
+//     if(action.type === 'ADD_TAG') {
+//         return [...state, action.payload]
+//     }
+//     return state;
+// }
 
 // Get images from server
 function* fetchImages() {
@@ -82,7 +82,7 @@ const storeInstance = createStore(
     combineReducers({
         images,
         tags,
-        tagList
+        // tagList
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

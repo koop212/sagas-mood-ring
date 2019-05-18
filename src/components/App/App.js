@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import AddTag from '../AddTag/AddTag';
+// import AddTag from '../AddTag/AddTag';
 import ImageDisplay from '../ImageDisplay/ImageDisplay';
 
 
@@ -25,7 +25,7 @@ class App extends Component {
           <h1>Image Carousel</h1>
         </header>
         <ImageDisplay />
-        <AddTag />
+        {/* <AddTag /> */}
       </div>
     );
   }
