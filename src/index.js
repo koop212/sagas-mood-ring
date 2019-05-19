@@ -16,6 +16,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages);
     yield takeEvery('FETCH_TAGS', fetchTags);
     yield takeEvery('ADD_IMGTAG', addImgTag);
+    yield takeEvery('FETCH_IMG_TAG', fetchImgTag)
 }
 
 // Create sagaMiddleware
@@ -31,12 +32,6 @@ const images = (state = [], action) => {
     }
 }
 
-// const tagList = (state = [], action) => {
-//     if(action.type === 'ADD_TAG') {
-//         return [...state, action.payload]
-//     }
-//     return state;
-// }
 
 // Get images from server
 function* fetchImages() {
@@ -63,9 +58,17 @@ function* fetchTags() {
 // Add tag_id and image_id to database
 function* addImgTag(action) {
     yield axios.post('/api/image_tag', action.payload)
-    // yield put({type:'FETCH_TAGS'})
+    yield put({ type:'FETCH_IMG_TAG'})
 }
 
+function* fetchImgTag() {
+    try {
+        let imgTagResponse = yield axios.get('/api/image_tag');
+        yield put({ type: 'SET_IMG_TAGS', payload: imgTagResponse.data })
+    } catch (error) {
+        console.log('Error in fetchImgTag', error);
+    }
+}
 
 // Used to store the images tags (e.g. 'Inspirational', 'Calming', 'Energy', etc.)
 const tags = (state = [], action) => {
@@ -77,12 +80,21 @@ const tags = (state = [], action) => {
     }
 }
 
+const imgTags = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_IMG_TAGS':
+            return action.payload;
+            default: 
+                return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         images,
         tags,
-        // tagList
+        imgTags
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

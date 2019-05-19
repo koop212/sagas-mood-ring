@@ -14,6 +14,9 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_IMAGES' });
     this.props.dispatch({ type: 'FETCH_TAGS' });
+    this.props.dispatch({ type: 'FETCH_IMG_TAG' });
+    this.props.dispatch({ type: 'ADD_IMGTAG' });
+
   }
 
 

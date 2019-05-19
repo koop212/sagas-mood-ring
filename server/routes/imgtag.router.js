@@ -14,6 +14,20 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+    // Get all tags
+    let queryText = `SELECT tags.name, image_tag.image_id FROM tags
+                    JOIN image_tag ON tags.id = image_tag.tag_id
+                    JOIN images ON images.id = image_tag.image_id;`;
+    pool.query(queryText)
+        .then(result => {
+            res.send(result.rows);
+        }).catch(error => {
+            console.log('Error in image_tag get route', error);
+            res.sendStatus(500);
+        });
+});
+
 
 
 
