@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import ImageDisplay from '../ImageDisplay/ImageDisplay';
 
 
-
 class App extends Component {
-
 
 
   // Renders the entire app on the DOM
@@ -15,8 +13,7 @@ class App extends Component {
     this.props.dispatch({ type: 'FETCH_IMAGES' });
     this.props.dispatch({ type: 'FETCH_TAGS' });
     this.props.dispatch({ type: 'FETCH_IMG_TAG' });
-    this.props.dispatch({ type: 'ADD_IMGTAG' });
-
+    // this.props.dispatch({ type: 'ADD_IMGTAG' });
   }
 
 
@@ -25,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Image Carousel</h1>
+          <h1>Mood Image</h1>
         </header>
         <ImageDisplay />
         {/* <AddTag /> */}

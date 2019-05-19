@@ -61,6 +61,7 @@ function* addImgTag(action) {
     yield put({ type:'FETCH_IMG_TAG'})
 }
 
+// Fetch the Tag names and Image id from the juntion table in the database.
 function* fetchImgTag() {
     try {
         let imgTagResponse = yield axios.get('/api/image_tag');
@@ -80,6 +81,7 @@ const tags = (state = [], action) => {
     }
 }
 
+// Used to store the matching tag names and image id
 const imgTags = (state = [], action) => {
     switch (action.type) {
         case 'SET_IMG_TAGS':

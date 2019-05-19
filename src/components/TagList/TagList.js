@@ -1,24 +1,26 @@
-// import React, {Component} from 'react';
-// import {connect} from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-// class TagList extends Component {
-//     render() {
-//         return(
-//             <div>
-//                 <option value={this.props.tags.id}>{this.props.tags.name}</option>
-//                 {/* {this.props.reduxState.imgTags.map((title, i) => {
-//                     if(title.id == this.props.tags.)
-//                 })} */}
-//             </div>
-//         )
-//     }
-// }
+class TagList extends Component {
 
-// const mapStateToProps = (reduxState) => {
-//     return {
-//         reduxState
-//     }
-// }
+    render() {
+        return(
+            <div>
+                {/* <option value={this.props.tags.id}>{this.props.tags.name}</option> */}
+                {/* {this.props.reduxState.imgTags.map((title, i) => {
+                    if(title.id == this.props.tags.)
+                })} */}
+                <p>{this.props.tags.name}</p>
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = (reduxState) => {
+    return {
+        reduxState
+    }
+}
 
 
-// export default connect(mapStateToProps)(TagList);
+export default connect(mapStateToProps)(TagList);
