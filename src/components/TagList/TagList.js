@@ -10,6 +10,7 @@ class TagList extends Component {
                 {/* {this.props.reduxState.imgTags.map((title, i) => {
                     if(title.id == this.props.tags.)
                 })} */}
+                {/* show the tag name */}
                 <p>{this.props.tags.name}</p>
             </div>
         )

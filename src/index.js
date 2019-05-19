@@ -57,8 +57,8 @@ function* fetchTags() {
 
 // Add tag_id and image_id to database
 function* addImgTag(action) {
-    yield axios.post('/api/image_tag', action.payload)
-    yield put({ type:'FETCH_IMG_TAG'})
+    yield axios.post('/api/image_tag', action.payload);
+    yield put({ type:'FETCH_IMG_TAG'});
 }
 
 // Fetch the Tag names and Image id from the juntion table in the database.
