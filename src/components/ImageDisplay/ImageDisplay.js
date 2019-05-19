@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import OneImage from '../OneImage/OneImage-Test.js';
+import OneImage from '../OneImage/OneImage';
+import '../ImageDisplay/ImageDisplay.css';
+
+
+
 class ImageDisplay extends Component {
 
     state = {
@@ -42,14 +46,18 @@ class ImageDisplay extends Component {
     render() {
         let index = this.state.index;
         return(
-            <div>
-                <button onClick={this.handlePrev}>&#10094;</button>
-                <button onClick={this.handleNext}>&#10095;</button>
-                {this.props.reduxState.images.map((pic, i) => {
-                    if (pic.id - 1 === index) {
-                        return <OneImage key={i} image={pic} />
-                    }
-                })}
+            <div className="container">
+                <div>
+                    <button className="prevBtn" onClick={this.handlePrev}>&#10094;</button>
+                    <button className="nextBtn" onClick={this.handleNext}>&#10095;</button>
+                </div>
+                <div>
+                    {this.props.reduxState.images.map((pic, i) => {
+                        if (pic.id - 1 === index) {
+                            return <OneImage key={i} image={pic} />
+                        }
+                    })}
+                </div>
             </div>
         )
     }

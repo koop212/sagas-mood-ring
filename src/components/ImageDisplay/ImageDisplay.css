@@ -1,0 +1,31 @@
+.prevBtn {
+    height: 35px;
+    border-radius: 4px;
+    background-color: white;
+    color: rgb(78, 152, 248);
+    border: 2px solid #555555;
+    margin: 0px 100px 0px 0px
+}
+
+.nextBtn {
+    height: 35px;
+    border-radius: 4px;
+    background-color: white;
+    color: rgb(78, 152, 248);
+    border: 2px solid #555555;
+    margin: 0px 0px 0px 100px
+}
+
+.prevBtn:hover {
+  background-color: rgb(78, 152, 248);
+  color: white;
+}
+
+.nextBtn:hover {
+  background-color: rgb(78, 152, 248);
+  color: white;
+}
+
+.container {
+    display: inline;
+}

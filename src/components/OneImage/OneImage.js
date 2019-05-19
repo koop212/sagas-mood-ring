@@ -45,20 +45,20 @@ class OneImage extends Component {
     render() {
         return (
                     <div>
-                        <div>
+                        <div className="mainImage">
                             <img className="image" src={this.props.image.path} alt={this.props.image.title} />
                         </div>
                         <div>
-                            <select value={this.state.tag_id} onChange={this.handleTagChange}>
+                            <select className="dropDown" value={this.state.tag_id} onChange={this.handleTagChange}>
                                 <option disabled value="0">Pick One!</option>
-                                {this.props.reduxState.tags.map((tag, i) => {
-                                    return (
-                                        // <TagList tags={tag} />
-                                        <option key={i} value={tag.id}>{tag.name}</option>
-                                    )
-                                })}
+                                    {this.props.reduxState.tags.map((tag, i) => {
+                                        return (
+                                            // <TagList tags={tag} />
+                                            <option key={i} value={tag.id}>{tag.name}</option>
+                                        )
+                                    })}
                             </select>
-                            <button onClick={this.handleClick}>Apply Tag</button>   
+                            <button className="applyBtn" onClick={this.handleClick}>Apply Tag</button>   
                         </div>
                         <div>
                             {this.props.reduxState.imgTags.map((tag, i) => {
