@@ -6,11 +6,7 @@ class TagList extends Component {
     render() {
         return(
             <div>
-                {/* <option value={this.props.tags.id}>{this.props.tags.name}</option> */}
-                {/* {this.props.reduxState.imgTags.map((title, i) => {
-                    if(title.id == this.props.tags.)
-                })} */}
-                {/* show the tag name */}
+                {/* Show list of tags matching with the image */}
                 <p>{this.props.tags.name}</p>
             </div>
         )

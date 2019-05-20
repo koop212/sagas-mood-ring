@@ -2,18 +2,24 @@
     height: 35px;
     border-radius: 4px;
     background-color: white;
-    color: rgb(78, 152, 248);
+    color: rgb(37, 38, 39);
     border: 2px solid #555555;
-    margin: 0px 100px 0px 0px
+    margin: 0px 100px 0px 0px;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 .nextBtn {
     height: 35px;
     border-radius: 4px;
     background-color: white;
-    color: rgb(78, 152, 248);
+    color: rgb(37, 38, 39);
     border: 2px solid #555555;
-    margin: 0px 0px 0px 100px
+    margin: 0px 0px 0px 100px;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 .prevBtn:hover {

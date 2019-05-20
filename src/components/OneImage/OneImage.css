@@ -1,8 +1,8 @@
 .image {
-    height: 400px;
-    min-width: 500px;
+    height: 300px;
+    width: 550px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
     margin: 20px;
 }
 
@@ -15,7 +15,11 @@
     height: 30px;
     border-radius: 4px;
     font-weight: bold;
-    color: rgb(78, 152, 248);
+    color: rgb(44, 44, 44);
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+
 }
 .applyBtn:hover {
     background-color: rgb(78, 152, 248);
@@ -31,7 +35,9 @@
 .dropDown {
     height: 30px;
     font-weight: bold;
-    color: rgb(78, 152, 248);
+    color: rgb(32, 32, 32);
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
 .dropDown:hover {

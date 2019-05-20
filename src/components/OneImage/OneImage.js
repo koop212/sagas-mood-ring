@@ -24,7 +24,6 @@ class OneImage extends Component {
         console.log(event.target.value);
         this.setState({
             tag_id: event.target.value,
-            image_id: this.props.image.id
         })
     }
 
@@ -34,13 +33,12 @@ class OneImage extends Component {
         event.preventDefault();
         console.log(this.state);
         if(this.state.tag_id == 0) {
-            return alert('Please select how you feel')
+            return alert('Please select how you feel about the image.')
         }
          this.setState({
             tag_id: event.target.value,
             image_id: this.props.image.id
         })
-        
         this.props.dispatch({ type: 'ADD_IMGTAG', payload: this.state });
     }
 
@@ -53,10 +51,9 @@ class OneImage extends Component {
                     </div>
                     <div>
                         <select className="dropDown" value={this.state.tag_id} onChange={this.handleTagChange}>
-                            <option value="0">Pick One!</option>
+                            <option value="0">What do you feel?</option>
                                 {this.props.reduxState.tags.map((tag, i) => {
                                     return (
-                                        // <TagList tags={tag} />
                                         <option key={i} value={tag.id}>{tag.name}</option>
                                     )
                                 })}
