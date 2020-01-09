@@ -18,7 +18,7 @@ class OneImage extends Component {
         })
     }
 
-    // change tag id value when selecting a tag name
+    // change tag id value when selecting a tag
     handleTagChange = (event) => {
         event.preventDefault();
         console.log(event.target.value);
@@ -37,7 +37,7 @@ class OneImage extends Component {
         }
          this.setState({
             tag_id: event.target.value,
-            image_id: this.props.image.id
+            // image_id: this.props.image.id
         })
         this.props.dispatch({ type: 'ADD_IMGTAG', payload: this.state });
     }
@@ -66,6 +66,7 @@ class OneImage extends Component {
                                 console.log('in image tag map', tag.name);
                                 return <TagList key={i} tags={tag}/>
                             }
+                            return null;
                         })}
                     </div>
                 </div>

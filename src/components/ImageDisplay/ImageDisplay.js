@@ -56,7 +56,8 @@ class ImageDisplay extends Component {
                         if (pic.id - 1 === index) {
                             return <OneImage key={i} image={pic} />
                         }
-                    })}
+                        return null;
+                })}
                 </div>
             </div>
         )

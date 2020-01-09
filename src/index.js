@@ -15,7 +15,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_IMAGES', fetchImages);
     yield takeEvery('FETCH_TAGS', fetchTags);
     yield takeEvery('ADD_IMGTAG', addImgTag);
-    yield takeEvery('FETCH_IMG_TAG', fetchImgTag)
+    yield takeEvery('FETCH_IMG_TAG', fetchImgTag);
 }
 
 // Create sagaMiddleware
